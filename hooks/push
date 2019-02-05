@@ -1,0 +1,10 @@
+#!/bin/bash
+# https://docs.docker.com/docker-hub/builds/advanced/#custom-build-phase-hooks
+
+TAG=`if [ "$SOURCE_BRANCH" == "add-travis-checks-v3" ]; then echo "add-travis-checks-latest"; else echo $SOURCE_BRANCH; fi`
+
+echo "Tagging [$IMAGE_NAME] into repository [$DOCKER_REPO] with tag [$TAG]"
+docker tag $IMAGE_NAME $DOCKER_REPO:$TAG
+
+echo "Pushing with tag [$TAG] to [$SOURCE_BRANCH]"
+docker push $DOCKER_REPO:$TAG
