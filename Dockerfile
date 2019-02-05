@@ -17,4 +17,3 @@ COPY Pipfile.lock Pipfile.lock
 RUN pipenv install --deploy --system
 
 COPY . /usr/src/app
-
