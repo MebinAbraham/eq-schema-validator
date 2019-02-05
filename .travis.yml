@@ -20,4 +20,5 @@ script:
     - pipenv run py.test
 branches:
     only:
+        - master
         - v3
